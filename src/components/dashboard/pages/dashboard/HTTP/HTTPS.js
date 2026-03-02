@@ -1,5 +1,5 @@
-const inv_base_url = "api/inventory";
-const metrics_base_url = "api/analytics";
+const inv_base_url = "/api/inventory";
+const metrics_base_url = "/api/analytics";
 
 export const getTopEmployee = async () => {
   const options = {

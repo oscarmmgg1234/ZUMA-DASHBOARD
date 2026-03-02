@@ -1,4 +1,4 @@
-const base_url = "api/inventory";
+const base_url = "/api/inventory";
 // http://192.168.1.176:3002
 
 export const reverTransaction = async (data) => {

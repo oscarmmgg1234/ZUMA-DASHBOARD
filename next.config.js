@@ -20,6 +20,15 @@ AUTH_SERVER_URL:"http://34.220.205.154:3002",
         source: "/api/employee/:path*",
         destination: "http://127.0.0.1:3002/:path*",
       },
+
+      {
+        source: "api/inventory/:path*",
+        destination: "http://127.0.0.1:3001/:path*",
+      },
+      {
+        source: "api/analytics/:path*",
+        destination: "http://192.168.1.248:3004/:path*",
+      }
       // If you have inventory on 3001, proxy it too
     ];
   },

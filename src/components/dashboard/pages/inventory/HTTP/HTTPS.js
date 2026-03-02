@@ -1,4 +1,4 @@
-const base_url = "http://192.168.1.248:3001";
+const base_url = "api/inventory";
 // http://192.168.1.176:3002
 
 export const reverTransaction = async (data) => {
@@ -273,7 +273,7 @@ export const getGlobalMetrics = async () => {
     },
   };
   const response = await fetch(
-    `http://192.168.1.248:3004/metrics/global`,
+    `api/analytics/metrics/global`,
     options
   );
   return await response.json();

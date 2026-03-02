@@ -324,7 +324,22 @@ export default function ViewInventoryModal(props) {
         const pdfUrl = URL.createObjectURL(pdfBlob);
         const pdfWindow = window.open(pdfUrl);
         if (pdfWindow) pdfWindow.onload = () => URL.revokeObjectURL(pdfUrl);
-      } else {
+      } else if(selectedCompany.label === "ALL PRODUCTS" && selectedType.id){
+        requestData = {
+          type: selectedType.id,
+          sortOrder: pf.sort
+        }
+         const pdf = await fetch("http://192.168.1.248:3001/genPdfSpecific", {
+          method: "POST",
+          headers,
+          body: JSON.stringify(requestData),
+        });
+        const pdfBlob = await pdf.blob();
+        const pdfUrl = URL.createObjectURL(pdfBlob);
+        const pdfWindow = window.open(pdfUrl);
+        if (pdfWindow) pdfWindow.onload = () => URL.revokeObjectURL(pdfUrl);
+
+      }else {
         requestData = {
           company: { company: selectedCompany.typeID, sortOrder: pf.sort },
         };
